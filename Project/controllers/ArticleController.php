@@ -35,11 +35,11 @@ class ArticleController {
     public function postActions() {
         // Check for add function
         if (isset($_POST["add_article"])) {
-            $this->article_model->addArticle($_POST["article_name"], $_POST["article_description"],
+            $this->article_model->addArticle($_POST["article_title"], $_POST["article_description"],
                           $_POST["article_doi"], $_POST["article_creator_id"], $_POST["article_lecturer_id"],
                         $_POST["article_creation_date"]);
         } elseif (isset($_POST["edit_article"])) {
-            $this->article_model->updateArticle($_POST["article_id"], $_POST["article_name"], $_POST["article_description"],
+            $this->article_model->updateArticle($_POST["article_id"], $_POST["article_title"], $_POST["article_description"],
                           $_POST["article_doi"], $_POST["article_creator_id"], $_POST["article_lecturer_id"],
                         $_POST["article_creation_date"]);
         }

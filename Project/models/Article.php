@@ -10,7 +10,7 @@ class Article extends Database {
     
     // Get all articles from DB table
     public function getAllArticles() {
-        $stmt = $this->executeQuery("SELECT articles.id, articles.name, articles.description, articles.doi, articles.creator_id, students.name AS creator_name, articles.lecturer_id, lecturers.name AS lecturer_name, articles.creation_date
+        $stmt = $this->executeQuery("SELECT articles.id, articles.title, articles.description, articles.doi, articles.creator_id, students.name AS creator_name, articles.lecturer_id, lecturers.name AS lecturer_name, articles.creation_date
                                             FROM $this->table_name
                                             INNER JOIN students ON articles.creator_id = students.id
                                             INNER JOIN lecturers ON articles.lecturer_id = lecturers.id");
@@ -22,7 +22,7 @@ class Article extends Database {
 
     // Get one article with specified ID from DB table if available
     public function getArticleFromId($id) {
-        $stmt = $this->executeQuery("SELECT articles.id, articles.name, articles.description, articles.doi, articles.creator_id, students.name AS creator_name, articles.lecturer_id, lecturers.name AS lecturer_name, articles.creation_date 
+        $stmt = $this->executeQuery("SELECT articles.id, articles.title, articles.description, articles.doi, articles.creator_id, students.name AS creator_name, articles.lecturer_id, lecturers.name AS lecturer_name, articles.creation_date 
                                             FROM $this->table_name
                                             INNER JOIN students ON articles.creator_id = students.id
                                             INNER JOIN lecturers ON articles.lecturer_id = lecturers.id
@@ -34,17 +34,17 @@ class Article extends Database {
     }
 
     // Adder function
-    public function addArticle($name, $description, $doi, $creator_id, $lecturer_id, $creation_date) {
-        $query = "INSERT INTO $this->table_name (name, description, doi, creator_id, lecturer_id, creation_date) VALUES (?, ?, ?, ?, ?, ?)";
+    public function addArticle($title, $description, $doi, $creator_id, $lecturer_id, $creation_date) {
+        $query = "INSERT INTO $this->table_name (title, description, doi, creator_id, lecturer_id, creation_date) VALUES (?, ?, ?, ?, ?, ?)";
         
-        return $this->executeQuery($query, [$name, $description, $doi, $creator_id, $lecturer_id, $creation_date]);
+        return $this->executeQuery($query, [$title, $description, $doi, $creator_id, $lecturer_id, $creation_date]);
     }
 
     // Updater function
-    public function updateArticle($id, $name, $description, $doi, $creator_id, $lecturer_id, $creation_date) {
-        $query = "UPDATE $this->table_name SET name = ?, description = ?, doi = ?, creator_id = ?, lecturer_id = ?, creation_date = ? WHERE id = ?";
+    public function updateArticle($id, $title, $description, $doi, $creator_id, $lecturer_id, $creation_date) {
+        $query = "UPDATE $this->table_name SET title = ?, description = ?, doi = ?, creator_id = ?, lecturer_id = ?, creation_date = ? WHERE id = ?";
         
-        return $this->executeQuery($query, [$name, $description, $doi, $creator_id, $lecturer_id, $creation_date, $id]);
+        return $this->executeQuery($query, [$title, $description, $doi, $creator_id, $lecturer_id, $creation_date, $id]);
     }
 
     // Deleter function

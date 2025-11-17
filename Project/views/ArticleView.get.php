@@ -12,7 +12,7 @@
     <thead>
         <tr>
         <th>ID</th>
-        <th>NAMA</th>
+        <th>JUDUL</th>
         <th>DOI</th>
         <th>PENULIS</th>
         <th>DOSEN PENGAMPU</th>
@@ -27,15 +27,16 @@
                 echo "
             <tr>
                 <th>$row[id]</th>
-                <td>$row[name]</td>
+                <td>$row[title]</td>
                 <td>$row[doi]</td>
                 <td>$row[creator_name]</td>
                 <td>$row[lecturer_name]</td>
                 <td>$row[creation_date]</td>
                 <td>
-                        <a class='btn btn-success' href='?page=articles&action=edit&id=$row[id]'>Edit</a>
-                        <button class='btn btn-danger' type='button' onclick='$del_script'>Delete</button>
-                        </td>
+                    <a class='btn btn-info' href='?page=articles&action=view&id=$row[id]'>View</a>
+                    <a class='btn btn-success' href='?page=articles&action=edit&id=$row[id]'>Edit</a>
+                    <button class='btn btn-danger' type='button' onclick='$del_script'>Delete</button>
+                </td>
             </tr>
             ";
             endforeach;

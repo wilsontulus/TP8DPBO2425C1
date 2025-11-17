@@ -2,6 +2,10 @@
     <?php
         if (isset($_GET["action"])) {
             switch ($_GET["action"]) {
+                case "view":
+                    include_once("ArticleView.view.php");
+                    break;
+
                 case "add":
                     include_once("ArticleView.add.php");
                     break;

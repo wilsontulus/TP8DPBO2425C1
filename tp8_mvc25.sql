@@ -25,7 +25,7 @@ CREATE TABLE students (
 
 CREATE TABLE articles (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(128) NOT NULL,
+    title VARCHAR(128) NOT NULL,
     description MEDIUMTEXT,
     doi VARCHAR(255) NOT NULL UNIQUE,
     creator_id INT NOT NULL,
@@ -54,7 +54,7 @@ INSERT INTO students (name, nim, phone, join_date, lecturer_id) VALUES
 ('Siti Rahmawati',     '1812349876', '082312349876', '2018-07-11', 4),
 ('Jonathan Halim',     '1910098877', '082210098877', '2019-01-27', 5);
 
-INSERT INTO articles (name, description, doi, creator_id, lecturer_id, creation_date) VALUES
+INSERT INTO articles (title, description, doi, creator_id, lecturer_id, creation_date) VALUES
 ('AI in Education', 'Exploration of AI usage in Indonesian universities.',
  '10.1234/edu.ai.001', 1, 1, '2023-05-10'),
 
