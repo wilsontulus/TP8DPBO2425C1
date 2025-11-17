@@ -10,9 +10,9 @@ Aamiin.
 
 ## Desain program
 
-Program ini merupakan program CRUD berbasis antarmuka web dengan arsitektur Model-View-Controller (MVC) untuk mengelola artikel yang dipublikasikan, beserta dosen dan mahasiswa yang terkait.
+Program ini merupakan program CRUD berbasis antarmuka web dengan arsitektur Model-View-Controller (MVC) berbasis PHP beserta basis data PHP Data Objects untuk mengelola artikel yang dipublikasikan, beserta dosen dan mahasiswa yang terkait.
 
-### Diagram UML (Database):
+### Diagram UML (Basis Data):
 
 ![UML Diagram](Dokumentasi/db_uml_diagram.svg)
 
