@@ -12,9 +12,9 @@ Aamiin.
 
 Program ini merupakan program CRUD berbasis antarmuka web dengan arsitektur Model-View-Controller (MVC) untuk mengelola artikel yang dipublikasikan, beserta dosen dan mahasiswa yang terkait.
 
-### Diagram UML (DB):
+### Diagram UML (Database):
 
-![UML Diagram](Dokumentasi/uml_diagram.svg)
+![UML Diagram](Dokumentasi/db_uml_diagram.svg)
 
 ### Deskripsi desain basis data:
 
