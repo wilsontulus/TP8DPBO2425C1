@@ -12,16 +12,17 @@
     <thead>
         <tr>
         <th>ID</th>
-        <th>NAME</th>
+        <th>NAMA</th>
         <th>NIDN</th>
-        <th>PHONE</th>
-        <th>JOIN DATE</th>
-        <th>ACTIONS</th>
+        <th>NO. TELP</th>
+        <th>TANGGAL REG.</th>
+        <th>AKSI</th>
         </tr>
     </thead>
     <tbody>
         <?php
             foreach ($lecturer_data as $row):
+                $del_script = "if (confirm(\"Yakin ingin menghapus data?\")) { location.href = \"?page=lecturers&action=delete&id=$row[id]\" }";
                 echo "
             <tr>
                 <th>$row[id]</th>
@@ -31,7 +32,7 @@
                 <td>$row[join_date]</td>
                 <td>
                         <a class='btn btn-success' href='?page=lecturers&action=edit&id=$row[id]'>Edit</a>
-                        <a class='btn btn-danger' href='?page=lecturers&action=delete&id=$row[id]'>Delete</a>
+                        <button class='btn btn-danger' type='button' onclick='$del_script'>Delete</button>
                         </td>
             </tr>
             ";

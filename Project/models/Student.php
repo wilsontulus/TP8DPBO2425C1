@@ -10,7 +10,9 @@ class Student extends Database {
 
     // Get all students from DB table
     public function getAllStudents() {
-        $stmt = $this->executeQuery("SELECT * FROM $this->table_name");
+        $stmt = $this->executeQuery("SELECT students.id, students.name, students.nim, students.phone, students.join_date, students.lecturer_id, lecturers.name AS lecturer_name 
+                                            FROM $this->table_name 
+                                            INNER JOIN lecturers ON students.lecturer_id = lecturers.id");
 
         if (isset($stmt)) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -19,7 +21,10 @@ class Student extends Database {
 
     // Get one student with specified ID from DB table if available
     public function getStudentFromId($id) {
-        $stmt = $this->executeQuery("SELECT * FROM $this->table_name WHERE id = ?", [$id]);
+        $stmt = $this->executeQuery("SELECT students.id, students.name, students.nim, students.phone, students.join_date, students.lecturer_id, lecturers.name AS lecturer_name 
+                                            FROM $this->table_name 
+                                            INNER JOIN lecturers ON students.lecturer_id = lecturers.id 
+                                            WHERE id = ?", [$id]);
 
         if (isset($stmt)) {
             return $stmt->fetch(PDO::FETCH_ASSOC);

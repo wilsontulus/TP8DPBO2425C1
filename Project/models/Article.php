@@ -10,7 +10,10 @@ class Article extends Database {
     
     // Get all articles from DB table
     public function getAllArticles() {
-        $stmt = $this->executeQuery("SELECT * FROM $this->table_name");
+        $stmt = $this->executeQuery("SELECT articles.id, articles.name, articles.description, articles.doi, articles.creator_id, students.name AS creator_name, articles.lecturer_id, lecturers.name AS lecturer_name, articles.creation_date
+                                            FROM $this->table_name
+                                            INNER JOIN students ON articles.creator_id = students.id
+                                            INNER JOIN lecturers ON articles.lecturer_id = lecturers.id");
 
         if (isset($stmt)) {
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -19,7 +22,11 @@ class Article extends Database {
 
     // Get one article with specified ID from DB table if available
     public function getArticleFromId($id) {
-        $stmt = $this->executeQuery("SELECT * FROM $this->table_name WHERE id = ?", [$id]);
+        $stmt = $this->executeQuery("SELECT articles.id, articles.name, articles.description, articles.doi, articles.creator_id, students.name AS creator_name, articles.lecturer_id, lecturers.name AS lecturer_name, articles.creation_date 
+                                            FROM $this->table_name
+                                            INNER JOIN students ON articles.creator_id = students.id
+                                            INNER JOIN lecturers ON articles.lecturer_id = lecturers.id
+                                            WHERE id = ?", [$id]);
 
         if (isset($stmt)) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
