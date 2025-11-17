@@ -1,30 +1,24 @@
 <div class="container my-4">
-    
     <?php
-        if ($_GET["action"] == "add") {
-            
-    ?>
+        if (isset($_GET["action"])) {
+            switch ($_GET["action"]) {
+                case "add":
+                    include_once("ArticleView.add.php");
+                    break;
 
-    <div class="row mb-4 ">
-		<div class="col-md-12">
-			<h2 class="heading-section"> Artikel Baru </h2>
-		</div>
-    </div>
+                case "edit":
+                    include_once("ArticleView.edit.php");
+                    break;
 
-    <?php
-        } else {
-    ?>
+                case "delete":
+                    include_once("ArticleView.get.php");
+                    break;
 
-    <div class="row mb-4 ">
-		<div class="col-md-12">
-			<h2 class="heading-section"> Manajemen Artikel </h2>
-		</div>
-    </div>
-
-    <div class="mb-4">
-        <button type="button" onclick="location.href='?page=articles&action=add'" class="btn mb-2 mb-md-0 btn-primary">Tambah Artikel Baru...</button>
-    </div>
-    <?php
+                default:
+                    include_once("ArticleView.get.php");
+            }
+        } else { // Management table
+            include_once("ArticleView.get.php");
         }
     ?>
 </div>

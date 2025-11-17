@@ -36,7 +36,7 @@ class Student extends Database {
 
     // Updater function
     public function updateStudent($id, $name, $nim, $phone, $join_date, $lecturer_id) {
-        $query = "UPDATE $this->table_name SET name = ?, nim = ?, phone = ?, join_date = ?, lecturer_id = ? WHERE nim = ?";
+        $query = "UPDATE $this->table_name SET name = ?, nim = ?, phone = ?, join_date = ?, lecturer_id = ? WHERE id = ?";
         
         return $this->executeQuery($query, [$name, $nim, $phone, $join_date, $lecturer_id, $id]);
     }

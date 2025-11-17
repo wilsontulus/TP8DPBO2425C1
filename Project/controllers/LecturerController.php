@@ -14,8 +14,36 @@ class LecturerController {
         $this->view = "views/LecturerView.php";
     }
 
+    public function getActions() {
+        // Check for deletion
+        if (isset($_GET["action"])) {
+            if ($_GET["action"] == "delete" && isset($_GET["id"])) {
+                $this->model->deleteLecturer($_GET["id"]);
+            }
+        }
+    }
+
+    public function postActions() {
+        // Check for add function
+        if (isset($_POST["add_lecturer"])) {
+            $this->model->addLecturer($_POST["lecturer_name"], $_POST["lecturer_nidn"],
+                          $_POST["lecturer_phone"], $_POST["lecturer_join_date"]);
+        } elseif (isset($_POST["edit_lecturer"])) {
+            $this->model->updateLecturer($_POST["lecturer_id"], $_POST["lecturer_name"],
+                             $_POST["lecturer_nidn"], $_POST["lecturer_phone"],
+                             $_POST["lecturer_join_date"]);
+        }
+    }
+
     public function render() {
-        $data = $this->model->getAllLecturers();
+        if (isset($_POST) && sizeof($_POST) > 0) {
+            $this->postActions();
+        }
+        if (isset($_GET) && sizeof($_GET) > 0) {
+            $this->getActions();
+        }
+
+        $lecturer_data = $this->model->getAllLecturers();
         include_once($this->view);
     }
 }

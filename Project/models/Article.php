@@ -34,10 +34,10 @@ class Article extends Database {
     }
 
     // Updater function
-    public function updateArticle($id, $name, $nim, $phone, $join_date, $lecturer_id) {
-        $query = "UPDATE $this->table_name SET name = ?, nim = ?, phone = ?, join_date = ?, lecturer_id = ? WHERE id = ?";
+    public function updateArticle($id, $name, $description, $doi, $creator_id, $lecturer_id, $creation_date) {
+        $query = "UPDATE $this->table_name SET name = ?, description = ?, doi = ?, creator_id = ?, lecturer_id = ?, creation_date = ? WHERE id = ?";
         
-        return $this->executeQuery($query, [$name, $nim, $phone, $join_date, $lecturer_id, $id]);
+        return $this->executeQuery($query, [$name, $description, $doi, $creator_id, $lecturer_id, $creation_date, $id]);
     }
 
     // Deleter function
