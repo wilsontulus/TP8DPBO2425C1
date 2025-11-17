@@ -28,7 +28,7 @@ require_once("controllers/StudentController.php");
   <link href="assets/bootstrap@5.3.8.css" rel="stylesheet" crossorigin="anonymous">
 
   <!-- JQuery, PopperJS, BootstrapJS -->
-  <script src="assets/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="assets/jquery@3.7.1.js" crossorigin="anonymous"></script>
   <script src="assets/popper@2.11.8.js" crossorigin="anonymous"></script>
   <script src="assets/bootstrap@5.3.8.js" crossorigin="anonymous"></script>
 
@@ -42,7 +42,7 @@ require_once("controllers/StudentController.php");
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link <?php if (!isset($page) || $page == "") { echo "active"; } ?>" aria-current="page" href="index.php">Home</a>
+            <a class="nav-link <?php if (!isset($page) || $page == "") { echo "active"; } ?>" aria-current="page" href="index.php">Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link <?php if ($page == "lecturers") { echo "active"; } ?>" href="?page=lecturers">Dosen</a>
@@ -62,6 +62,7 @@ require_once("controllers/StudentController.php");
   <?php
     $controller = "";
     
+    // Choose the controller according to the page parameter
     switch ($page) {
         case "lecturers":
             $controller = new LecturerController();
@@ -80,6 +81,7 @@ require_once("controllers/StudentController.php");
             $controller = new NotFoundController();
     }
 
+    // Render the page if the controller is assigned & available
     if (isset($controller)) {
         $controller->render();
     }

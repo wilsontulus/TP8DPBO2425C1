@@ -35,12 +35,12 @@ if (isset($_GET["id"])) {
 
         <div class="row mb-4">
             <label class="col-md-2">NIDN:</label>
-            <input class="col" type="text" id="lecturer_name" name="lecturer_nidn" value="<?= $lecturer_nidn ?>">
+            <input class="col" type="text" id="lecturer_nidn" name="lecturer_nidn" value="<?= $lecturer_nidn ?>">
         </div>
 
         <div class="row mb-4">
             <label class="col-md-2">Nama:</label>
-            <input class="col" type="text" id="lecturer_nidn" name="lecturer_name" value="<?= $lecturer_name ?>">
+            <input class="col" type="text" id="lecturer_name" name="lecturer_name" value="<?= $lecturer_name ?>">
         </div>
 
         <div class="row mb-4">

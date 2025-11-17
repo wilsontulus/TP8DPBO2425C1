@@ -36,12 +36,16 @@ class LecturerController {
     }
 
     public function render() {
+        // Perform POST & GET specific actions before rendering the page
         if (isset($_POST) && sizeof($_POST) > 0) {
             $this->postActions();
         }
+
         if (isset($_GET) && sizeof($_GET) > 0) {
             $this->getActions();
         }
+
+        // Import all data and render the page
 
         $lecturer_data = $this->model->getAllLecturers();
         include_once($this->view);
