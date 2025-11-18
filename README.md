@@ -22,7 +22,7 @@ Satu controller bisa mengarah ke berbagai macam View, tergantung dengan paramete
 
 - Tabel `lecturers` menampung data dosen yang berupa ID, nama, NIDN, nomor telepon, dan tanggal pendaftaran.
 - Tabel `students` menampung data mahasiswa yang berupa ID, nama, NIM, nomor telepon, tanggal pendaftaran, dan ID dosen wali.
-- Tabel `articles` menampung data artikel yang berupa ID, nama, deskripsi, DOI, ID mahasiswa, ID dosen pengampu, dan tanggal pembuatan artikel. Untuk atribut `deskripsi` menggunakan tipe data MEDIUMTEXT agar dapat menyimpan teks dengan jumlah kata yang lebih banyak, maupun teks dengan lebih dari satu kalimat.
+- Tabel `articles` menampung data artikel yang berupa ID, nama, deskripsi, DOI, ID mahasiswa, ID dosen pengampu, dan tanggal pembuatan artikel. Untuk atribut `description` menggunakan tipe data MEDIUMTEXT agar dapat menyimpan teks dengan jumlah kata yang lebih banyak, maupun teks dengan lebih dari satu kalimat.
 
 Program ini juga memanfaatkan fungsi JOIN pada database SQL untuk menggabungkan data dari tabel lain dalam satu output tabel, seperti:
 - Menampilkan nama dosen disamping ID dosen dalam tampilan tabel mahasiswa
