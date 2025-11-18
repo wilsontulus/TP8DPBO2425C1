@@ -28,5 +28,7 @@ Program ini menyediakan antarmuka berupa webpage yang bisa dibuka oleh user (mis
 
 ## Preview operasional program
 
-![Preview](Dokumentasi/preview.mp4)
+https://github.com/user-attachments/assets/4453ecd6-9e0d-4fb9-9910-bfc343e3a204
+
+
 
