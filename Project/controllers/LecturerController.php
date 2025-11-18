@@ -9,7 +9,9 @@ class LecturerController {
     private $view;
     
     public function __construct() {
+        // Declare related models
         $this->model = new Lecturer();
+
         // Get view module
         $this->view = "views/LecturerView.php";
     }
@@ -45,9 +47,11 @@ class LecturerController {
             $this->getActions();
         }
 
-        // Import all data and render the page
+        // Import the required data
 
         $lecturer_data = $this->model->getAllLecturers();
+
+        // Render the view page from the view module
         include_once($this->view);
     }
 }

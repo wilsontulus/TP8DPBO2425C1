@@ -11,8 +11,10 @@ class StudentController {
     private $view;
     
     public function __construct() {
+        // Declare related models
         $this->lecturer_model = new Lecturer();
         $this->student_model = new Student();
+
         // Get view module
         $this->view = "views/StudentView.php";
     }
@@ -50,10 +52,12 @@ class StudentController {
             $this->getActions();
         }
 
-        // Import all data and render the page
+        // Import the required data
 
         $lecturer_data = $this->lecturer_model->getAllLecturers();
         $student_data = $this->student_model->getAllStudents();
+
+        // Render the view page from the view module
         include_once($this->view);
     }
 }

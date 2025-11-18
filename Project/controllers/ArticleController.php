@@ -10,9 +10,11 @@ class ArticleController {
     private $article_model;
     private $lecturer_model;
     private $student_model;
+
     private $view;
 
     public function __construct() {
+        // Declare related models
         $this->article_model = new Article();
         $this->lecturer_model = new Lecturer();
         $this->student_model = new Student();
@@ -55,12 +57,13 @@ class ArticleController {
             $this->getActions();
         }
 
-        // Import all data and render the page
+        // Import the required data
 
         $article_data = $this->article_model->getAllArticles();
         $lecturer_data = $this->lecturer_model->getAllLecturers();
         $student_data = $this->student_model->getAllStudents();
 
+        // Render the view page from the view module
         include_once($this->view);
     }
 }
